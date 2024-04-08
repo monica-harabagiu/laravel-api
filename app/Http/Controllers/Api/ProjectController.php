@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index(){
-        $projects = Project::all();
+    public function index()
+    {
+        $projects = Project::with('type', 'technology')->get();
 
         return response()->json([
             'success' => true,
